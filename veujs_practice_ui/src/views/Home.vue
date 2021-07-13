@@ -18,11 +18,13 @@
 <!--</script>-->
 
 <template>
-  <img alt="Vue logo" src="../assets/logo.png">
+<div>
+    <img alt="Vue logo" src="../assets/logo.png">
   <Header/>
   <AddTodo v-on:add-todo="addTodo"/>
   <todos v-bind:todos="todos_list" v-on:del-todo="deleteTodo"/>
 
+</div>
 </template>
 
 <script>
@@ -48,9 +50,9 @@ export default {
   methods: {
     deleteTodo(id) {
       axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-      .then(this.todos = this.todos.filter(todo => todo.id !== id))
-      .catch(err => console.log(err))
-      // this.todos = this.todos.filter(todo => todo.id !== id);
+          .then(this.todos_list = this.todos_list.filter(todo => todo.id !== id))
+          .catch(err => console.log(err))
+      // this.todos_list = this.todos_list.filter(todo => todo.id !== id);
     },
     addTodo(newTodo) {
       const {title, completed} = newTodo;

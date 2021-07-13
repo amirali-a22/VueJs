@@ -1,7 +1,9 @@
 <template>
-  <header class="header">
+<div>
+    <header class="header">
     <h1>TodoList</h1>
   </header>
+</div>
 </template>
 
 <script>
